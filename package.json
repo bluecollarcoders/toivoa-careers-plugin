@@ -1,0 +1,21 @@
+{
+  "name": "toivoa-careers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.17.0"
+  },
+    "wp-scripts": {
+    "entry": {
+      "blocks/job-details-sidebar/build/index": "blocks/job-details-sidebar/src/index.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

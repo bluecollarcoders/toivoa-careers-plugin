@@ -1,0 +1,18 @@
+{
+  "name": "toivoa/careers",
+  "description": "Provides a Careers CPT and block templates",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "Toivoa_Careers\\": "includes/"
+    }
+  },
+      "authors": [
+        {
+            "name": "caleb matteis",
+            "email": "info@sewnfuldigital.com"
+        }
+    ],
+  "require": {}
+}
