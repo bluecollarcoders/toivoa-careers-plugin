@@ -7,6 +7,9 @@ yarn-error.log*
 # build artifacts
 **/build/
 **/dist/
+# …except these
+!blocks/breadcrumb-block/build/
+!blocks/job-details-sidebar/build/
 
 # PHP dependencies — installed on deploy
 vendor/

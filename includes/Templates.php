@@ -54,13 +54,13 @@ final class Templates {
 		
 		$path = TOIVOA_CAREERS_PATH . "templates/{$template_name}";
 
-        if ( file_exists( $path ) ) {
-            ob_start();
-            include $path;
-            return ob_get_clean();
-        }
+		if ( file_exists( $path ) ) {
+			ob_start();
+			include $path;
+			return ob_get_clean();
+		}
 
-        return '';
+		return '';
 	}
 
 
