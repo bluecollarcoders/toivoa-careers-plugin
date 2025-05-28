@@ -44,56 +44,55 @@ final class Templates {
 		add_action( 'init', [ $this, 'register_block_templates' ] );
 	}
 
-    /**
-     * Get the content of a template.
-     *
-     * @param string $template_name The name of the template.
-     * @return string The content of the template.
-     */
-    private function get_template_content( string $template_name ): string {
-        
-        $path = TOIVOA_CAREERS_PATH . "templates/{$template_name}.html";
+	/**
+	 * Get the content of a template.
+	 *
+	 * @param string $template_name The name of the template.
+	 * @return string The content of the template.
+	 */
+	private function get_template_content( string $template_name ): string {
+		$path = TOIVOA_CAREERS_PATH . "templates/{$template_name}.html";
 
-        if ( ! file_exists( $path ) ) {
-            return '';
-        }
+		if ( ! file_exists( $path ) ) {
+			error_log( "[Toivoa Careers] template not found: $path" );
+			return '';
+		}
 
-        ob_start();
-        include $path;
-        return ob_get_clean();
-    }
+		return file_get_contents( $path );
+	}
 
-    /**
-     * Register block templates.
-     *
-     * @since 1.0.0
-     */
-    public function register_block_templates(): void {
 
-        $template_dir     = TOIVOA_CAREERS_PATH . 'templates/';
-        $plugin_namespace = 'toivoa-careers';
+	/**
+	 * Register block templates.
+	 *
+	 * @since 1.0.0
+	 */
+	public function register_block_templates(): void {
 
-            foreach ( glob( $template_dir . '*.html' ) as $file ) {
-            $slug    = basename( $file, '.html' ); // e.g. single-job
-            $content = $this->get_template_content( basename( $file ) );
+		$template_dir     = TOIVOA_CAREERS_PATH . 'templates/';
+		$plugin_namespace = 'toivoa-careers';
 
-            $args = [
-                'title'      => ucwords( str_replace( '-', ' ', $slug ) ),
-                'content'    => $content,
-            ];
+			foreach ( glob( $template_dir . '*.html' ) as $file ) {
+			$slug    = basename( $file, '.html' ); // e.g. single-job
+			$content = $this->get_template_content( basename( $file ) );
 
-            // Only assign post_types for single templates.
-            if ( str_starts_with( $slug, 'single-' ) ) {
-                $args['post_types'] = [ 'job' ];
-            }
+			$args = [
+				'title'      => ucwords( str_replace( '-', ' ', $slug ) ),
+				'content'    => $content,
+			];
 
-            register_block_template(
-                "{$plugin_namespace}//{$slug}",
-                $args
-            );
+			// Only assign post_types for single templates.
+			if ( str_starts_with( $slug, 'single-' ) ) {
+				$args['post_types'] = [ 'job' ];
+			}
 
-        }
-    }
+			register_block_template(
+				"{$plugin_namespace}//{$slug}",
+				$args
+			);
+
+		}
+	}
 
 }
 
