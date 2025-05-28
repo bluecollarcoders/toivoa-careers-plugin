@@ -51,14 +51,16 @@ final class Templates {
 	 * @return string The content of the template.
 	 */
 	private function get_template_content( string $template_name ): string {
-		$path = TOIVOA_CAREERS_PATH . "templates/{$template_name}.html";
+		
+		$path = TOIVOA_CAREERS_PATH . "templates/{$template_name}";
 
-		if ( ! file_exists( $path ) ) {
-			error_log( "[Toivoa Careers] template not found: $path" );
-			return '';
-		}
+        if ( file_exists( $path ) ) {
+            ob_start();
+            include $path;
+            return ob_get_clean();
+        }
 
-		return file_get_contents( $path );
+        return '';
 	}
 
 
