@@ -52,7 +52,7 @@ final class Templates {
      */
     private function get_template_content( string $template_name ): string {
         
-        $path = TOIVOA_CAREERS_PATH . "templates/{$template_name}.php";
+        $path = TOIVOA_CAREERS_PATH . "templates/{$template_name}.html";
 
         if ( ! file_exists( $path ) ) {
             return '';
