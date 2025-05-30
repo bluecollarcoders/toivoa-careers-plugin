@@ -54,13 +54,24 @@ final class Templates {
 		
 		$path = TOIVOA_CAREERS_PATH . "templates/{$template_name}";
 
-		if ( file_exists( $path ) ) {
-			ob_start();
-			include $path;
-			return ob_get_clean();
+		if ( ! file_exists( $path ) ) {
+			return '';
 		}
 
-		return '';
+		// grab raw html.
+		$html = file_get_contents( $path );
+
+		// Build the real assets URL.
+		$assets_url = untrailingslashit( TOIVOA_CAREERS_URL ) . '/assets/';
+
+		// swap the placeholder for the real URL.
+		$html = str_replace(
+			'{{PLUGIN_ASSET_URL}}',
+			esc_url( $assets_url ),
+			$html
+		);
+
+		return $html;
 	}
 
 
