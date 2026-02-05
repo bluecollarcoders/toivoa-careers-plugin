@@ -517,32 +517,32 @@ wp post-type list
 
 ## Contact & Support
 
-**Developer**: [Your Name]
-**Email**: [Your Email]
-**LinkedIn**: [Your LinkedIn]
+**Developer**: Caleb Matteis
+**Email**: info@calebmatteis.online
+**LinkedIn**: https://www.linkedin.com/in/caleb-matteis/
 
-Built for Toivoa Coaching - demonstrating multi-system integration expertise and business process automation skills.
+Built for Toivoa Coaching - a nonprofit health and wellness coaching organization.
 
-## Why This Project Demonstrates Advanced WordPress Skills
+## Technical Implementation Summary
 
-### **Modern WordPress Expertise**
-- **Full Site Editing Pioneer**: Built for WordPress 6.0+ block themes before widespread adoption
-- **Custom Block Development**: JavaScript/React blocks with server-side rendering
-- **Block Pattern Architecture**: Reusable content components for non-technical users
-- **REST API Integration**: Headless-ready with proper API exposure
-- **@wordpress/scripts Mastery**: Modern build tools and development workflow
+### **WordPress Development**
+- Full Site Editing (FSE) templates with block-based architecture
+- Custom React blocks integrated with WordPress REST API
+- Block patterns for consistent content layouts
+- Modern PHP with namespacing and PSR-4 autoloading
+- @wordpress/scripts build process for JavaScript development
 
-### **Systems Integration Mastery**
-- **Platform Constraint Navigation**: Worked around Forminator/MailerLite limitations
-- **Multi-System Data Flow**: Seamless integration across 4 different platforms
-- **Business Logic Automation**: Intelligent routing based on form submission analysis
-- **File Handling Strategy**: Secure uploads with cross-platform URL sharing
+### **Multi-System Integration**
+- WordPress → Forminator → Make.com → MailerLite data flow
+- Webhook-based automation for applicant processing
+- Conditional routing logic based on document upload status
+- File handling with WordPress storage and MailerLite URL references
 
-### **Production-Ready Architecture**
-- **Separation of Concerns**: Each system handles its core competency
-- **Scalable Design**: Easy to extend with new job types and workflows
-- **Error Resilience**: Graceful degradation if any component fails
-- **Maintainable Codebase**: Clean architecture for long-term sustainability
+### **Business Process Automation**
+- Automated applicant categorization and email sequences
+- Document-based workflow routing (Resume + Certificate combinations)
+- Staff notification system for complete applications
+- Scalable intake process with minimal manual intervention
 
 ---
 
