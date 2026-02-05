@@ -258,7 +258,9 @@ if(resume_present = true AND cert_present = true) {
 ## Screenshots & Visual Documentation
 
 ### Job Application Form Interface
-![Job Application Form](/var/folders/2j/whxtg4qx4d7g62m65m9xj2r40000gr/T/TemporaryItems/NSIRD_screencaptureui_Lxj2vt/Screenshot%202026-02-05%20at%208.54.38%20AM.png)
+<img width="1618" height="1028" alt="Screenshot 2026-02-05 at 10 58 43 AM" src="https://github.com/user-attachments/assets/7e79de6e-eb1f-4454-82c4-9f0edd6c6ddc" />
+<img width="1617" height="998" alt="Screenshot 2026-02-05 at 11 01 02 AM" src="https://github.com/user-attachments/assets/967b4146-7e52-4cbf-addf-e3c790efaa39" />
+<img width="1610" height="995" alt="Screenshot 2026-02-05 at 11 01 24 AM" src="https://github.com/user-attachments/assets/d320e26e-f1fb-45ad-a5b7-d97f493247d4" />
 
 **Key Features Shown:**
 - Clean, professional form design integrated with site branding
@@ -267,7 +269,7 @@ if(resume_present = true AND cert_present = true) {
 - Seamless integration with Forminator for webhook processing
 
 ### Make.com Intelligent Routing Workflow
-![Make.com Automation Scenario](/var/folders/2j/whxtg4qx4d7g62m65m9xj2r40000gr/T/TemporaryItems/NSIRD_screencaptureui_Kor2aw/Screenshot%202026-02-05%20at%208.52.12%20AM.png)
+<img width="1614" height="1035" alt="Screenshot 2026-02-05 at 10 57 45 AM" src="https://github.com/user-attachments/assets/a1034cc2-cb06-4dbc-b5be-1915f2c6afc9" />
 
 **Automation Architecture Shown:**
 - **Webhook Trigger**: Receives form submissions from Forminator
@@ -281,7 +283,7 @@ if(resume_present = true AND cert_present = true) {
 - File URLs passed to MailerLite for staff access
 
 ### WordPress Template System Integration
-![WordPress FSE Templates](/var/folders/2j/whxtg4qx4d7g62m65m9xj2r40000gr/T/TemporaryItems/NSIRD_screencaptureui_n1WmWL/Screenshot%202026-02-05%20at%2010.16.02%20AM.png)
+<img width="1618" height="1023" alt="Screenshot 2026-02-05 at 10 59 33 AM" src="https://github.com/user-attachments/assets/8c0e8d26-b7df-4037-8a49-f37546d6f27c" />
 
 **Full Site Editing (FSE) Template System:**
 - **Archive Job Template**: Custom job listing page with query loops and filtering
@@ -330,7 +332,7 @@ registerBlockType('toivoa-careers/breadcrumb', {
 #### **Integration Testing & Deployment**
 ```bash
 # WordPress CLI integration
-wp forminator form list           # Verify form configuration
+WP Forminator form list           # Verify form configuration
 wp post-type list               # Confirm CPT registration
 wp rest-api list-endpoints      # Test REST API exposure
 
