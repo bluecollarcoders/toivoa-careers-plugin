@@ -258,7 +258,7 @@ if(resume_present = true AND cert_present = true) {
 ## Screenshots & Visual Documentation
 
 ### Job Application Form Interface
-![Job Application Form](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX////8/PwAAAD19fXr6+vY2Ni/v7+lpaWzLZMtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGASURBVHgB7dAhAQAwDMNA3b+dISNIVPDqFaT8AAAAAAAAAADgBEWFWAWNb+aNUgEAAAAAAAAAAE5UgFjEMhZxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUs2wr+A6Cg4+Rux9ZBAAAAAElFTkSuQmCC)
+![Job Application Form](/var/folders/2j/whxtg4qx4d7g62m65m9xj2r40000gr/T/TemporaryItems/NSIRD_screencaptureui_Lxj2vt/Screenshot%202026-02-05%20at%208.54.38%20AM.png)
 
 **Key Features Shown:**
 - Clean, professional form design integrated with site branding
@@ -267,7 +267,7 @@ if(resume_present = true AND cert_present = true) {
 - Seamless integration with Forminator for webhook processing
 
 ### Make.com Intelligent Routing Workflow
-![Make.com Automation Scenario](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX////8/PwAAAD19fXr6+vY2Ni/v7+lpaWzLZMtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGASURBVHgB7dAhAQAwDMNA3b+dISNIVPDqFaT8AAAAAAAAAADgBEWFWAWNb+aNUgEAAAAAAAAAAE5UgFjEMhZxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUs2wr+A6Cg4+Rux9ZBAAAAAElFTkSuQmCC)
+![Make.com Automation Scenario](/var/folders/2j/whxtg4qx4d7g62m65m9xj2r40000gr/T/TemporaryItems/NSIRD_screencaptureui_Kor2aw/Screenshot%202026-02-05%20at%208.52.12%20AM.png)
 
 **Automation Architecture Shown:**
 - **Webhook Trigger**: Receives form submissions from Forminator
@@ -281,7 +281,7 @@ if(resume_present = true AND cert_present = true) {
 - File URLs passed to MailerLite for staff access
 
 ### WordPress Template System Integration
-![WordPress FSE Templates](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEX////8/PwAAAD19fXr6+vY2Ni/v7+lpaWzLZMtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGASURBVHgB7dAhAQAwDMNA3b+dISNIVPDqFaT8AAAAAAAAAADgBEWFWAWNb+aNUgEAAAAAAAAAAE5UgFjEMhZxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUsYxnLWMYylrGMZSxjGctYxjKWsYxlLGMZy1jGMpaxjGUs2wr+A6Cg4+Rux9ZBAAAAAElFTkSuQmCC)
+![WordPress FSE Templates](/var/folders/2j/whxtg4qx4d7g62m65m9xj2r40000gr/T/TemporaryItems/NSIRD_screencaptureui_n1WmWL/Screenshot%202026-02-05%20at%2010.16.02%20AM.png)
 
 **Full Site Editing (FSE) Template System:**
 - **Archive Job Template**: Custom job listing page with query loops and filtering
