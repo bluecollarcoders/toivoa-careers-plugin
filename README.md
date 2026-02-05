@@ -158,10 +158,9 @@ const JobDetailsSidebar = () => {
 };
 ```
 
-**Advanced React Features:**
+**React Integration Features:**
 - **WordPress Data Hooks**: `useEntityProp`, `useSelect`, `useDispatch`
 - **Real-time Meta Updates**: Changes sync immediately with REST API
-- **TypeScript Ready**: Modern development patterns
 - **Component Composition**: Reusable UI components following WordPress design system
 
 #### **Block Pattern System**
