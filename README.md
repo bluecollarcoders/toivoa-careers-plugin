@@ -466,8 +466,8 @@ wp block-editor validate        # Ensure block compatibility
 
 - **WordPress**: 5.8+ with Full Site Editing support
 - **PHP**: 7.4+ with cURL extension
-- **Forminator Pro**: Required for webhook functionality
-- **Make.com**: Pro account for advanced routing
+- **Forminator**: Required for webhook functionality
+- **Make.com**: Free account
 - **MailerLite**: Free account sufficient for basic functionality
 
 ## Installation & Configuration
