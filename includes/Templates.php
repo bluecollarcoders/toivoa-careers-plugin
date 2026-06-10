@@ -2,12 +2,12 @@
 /**
  * Template functions for the plugin.
  *
- * @package Toivoa_Careers
+ * @package M2_Careers
  */
 
-namespace Toivoa_Careers;
+namespace M2_Careers;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -16,10 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Template functions for the plugin.
  *
- * This class handles template-related functionality for the Toivoa Careers plugin.
+ * This class handles template-related functionality for the M2 Careers plugin.
  * It provides methods for loading and rendering templates used throughout the plugin.
  *
- * @package Toivoa_Careers
+ * @package M2_Careers
  */
 
 final class Templates {
@@ -52,7 +52,7 @@ final class Templates {
 	 */
 	private function get_template_content( string $template_name ): string {
 		
-		$path = TOIVOA_CAREERS_PATH . "templates/{$template_name}";
+		$path = M2_CAREERS_PATH . "templates/{$template_name}";
 
 		if ( ! file_exists( $path ) ) {
 			return '';
@@ -62,7 +62,7 @@ final class Templates {
 		$html = file_get_contents( $path );
 
 		// Build the real assets URL.
-		$assets_url = untrailingslashit( TOIVOA_CAREERS_URL ) . '/assets/';
+		$assets_url = untrailingslashit( M2_CAREERS_URL ) . '/assets/';
 
 		// swap the placeholder for the real URL.
 		$html = str_replace(
@@ -82,8 +82,8 @@ final class Templates {
 	 */
 	public function register_block_templates(): void {
 
-		$template_dir     = TOIVOA_CAREERS_PATH . 'templates/';
-		$plugin_namespace = 'toivoa-careers';
+		$template_dir     = M2_CAREERS_PATH . 'templates/';
+		$plugin_namespace = 'm2-careers';
 
 			foreach ( glob( $template_dir . '*.html' ) as $file ) {
 			$slug    = basename( $file, '.html' ); // e.g. single-job
@@ -94,9 +94,13 @@ final class Templates {
 				'content'    => $content,
 			];
 
-			// Only assign post_types for single templates.
+			// Assign post_types for single templates.
 			if ( str_starts_with( $slug, 'single-' ) ) {
-				$args['post_types'] = [ 'job' ];
+				$args['post_types'] = [ 'm2_career' ];
+			}
+			// Handle page templates.
+			if ( str_starts_with( $slug, 'page-' ) ) {
+				$args['postTypes'] = [ 'page' ];
 			}
 
 			register_block_template(

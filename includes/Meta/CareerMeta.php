@@ -2,12 +2,12 @@
 /**
  * Career Meta class.
  *
- * @package ToivoaCareers
+ * @package M2_Careers
  */
 
-namespace Toivoa_Careers\Meta;
+namespace M2_Careers\Meta;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 // Bail early if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Career Meta class.
  *
- * @package ToivoaCareers
+ * @package M2_Careers
  */
 final class CareerMeta {
 
@@ -46,31 +46,67 @@ final class CareerMeta {
 	 */
 	public function register_career_post_meta(): void {
 		$this->register_career_meta(
-			'job',
+			'm2_career',
 			[
 				[
-					'meta_key'          => 'position_title',
-					'label'             => __( 'Position Title', 'toivoa-careers' ),
+					'meta_key'          => 'm2_location',
+					'label'             => __( 'Location', 'm2-careers' ),
 					'type'              => 'string',
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'meta_key'          => 'location',
-					'label'             => __( 'Location', 'toivoa-careers' ),
+					'meta_key'          => 'm2_compensation',
+					'label'             => __( 'Compensation', 'm2-careers' ),
 					'type'              => 'string',
-					'sanitize_callback' => 'sanitize_textarea_field',
+					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'meta_key'          => 'position_type',
-					'label'             => __( 'Position Type', 'toivoa-careers' ),
+					'meta_key'          => 'm2_openings',
+					'label'             => __( 'Number of Openings', 'm2-careers' ),
 					'type'              => 'string',
-					'sanitize_callback' => 'sanitize_textarea_field',
+					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'meta_key'          => 'reports_to',
-					'label'             => __( 'Reports To', 'toivoa-careers' ),
+					'meta_key'          => 'm2_status',
+					'label'             => __( 'Status', 'm2-careers' ),
 					'type'              => 'string',
-					'sanitize_callback' => 'sanitize_textarea_field',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				[
+					'meta_key'          => 'm2_apply_url',
+					'label'             => __( 'Apply URL', 'm2-careers' ),
+					'type'              => 'string',
+					'sanitize_callback' => 'esc_url_raw',
+				],
+				[
+					'meta_key'          => 'm2_partner_company',
+					'label'             => __( 'Company Display Name', 'm2-careers' ),
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				[
+					'meta_key'          => 'm2_employment_type',
+					'label'             => __( 'Employment Type', 'm2-careers' ),
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				[
+					'meta_key'          => 'm2_employment_type',
+					'label'             => __( 'Employment Type', 'm2-careers' ),
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				[
+					'meta_key'          => 'm2_role_type',
+					'label'             => __( 'Role Type', 'm2-careers' ),
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
+				],
+				[
+					'meta_key'          => 'm2_remote_type',
+					'label'             => __( 'Remote Type', 'm2-careers' ),
+					'type'              => 'string',
+					'sanitize_callback' => 'sanitize_text_field',
 				]
 			]
 		);
@@ -97,6 +133,7 @@ final class CareerMeta {
 			);
 		}
 	}
+
 
 }
 

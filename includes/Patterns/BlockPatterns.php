@@ -2,12 +2,12 @@
 /**
  * Block Patterns.
  *
- * @package ToivoaCareers
+ * @package M2_Careers
  */
 
-namespace Toivoa_Careers\Patterns;
+namespace M2_Careers\Patterns;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -45,20 +45,20 @@ final class BlockPatterns {
 	 */
 	public function register_block_patterns() {
 		
-		register_block_pattern_category( 'toivoa-careers', [
-			'label' => __( 'Toivoa Careers', 'toivoa-careers' ),
+		register_block_pattern_category( 'm2-careers', [
+			'label' => __( 'M2 Careers', 'm2-careers' ),
 		] );
 
 		$asset_urls = [
-			'%%ASSET_IMAGE_1%%' => TOIVOA_CAREERS_URL . 'assets/image-asset-1.png',
-			'%%ASSET_IMAGE_2%%' => TOIVOA_CAREERS_URL . 'assets/image-asset-2.png',
-			'%%ASSET_IMAGE_3%%' => TOIVOA_CAREERS_URL . 'assets/image-asset-3.png',
-			'%%ASSET_IMAGE_5%%' => TOIVOA_CAREERS_URL . 'assets/image-asset-5.png',
-			'%%ASSET_IMAGE_6%%' => TOIVOA_CAREERS_URL . 'assets/image-asset-6.png',
-			'%%ASSET_IMAGE_7%%' => TOIVOA_CAREERS_URL . 'assets/image-asset-7.png',
+			'%%ASSET_IMAGE_1%%' => M2_CAREERS_URL . 'assets/image-asset-1.png',
+			'%%ASSET_IMAGE_2%%' => M2_CAREERS_URL . 'assets/image-asset-2.png',
+			'%%ASSET_IMAGE_3%%' => M2_CAREERS_URL . 'assets/image-asset-3.png',
+			'%%ASSET_IMAGE_5%%' => M2_CAREERS_URL . 'assets/image-asset-5.png',
+			'%%ASSET_IMAGE_6%%' => M2_CAREERS_URL . 'assets/image-asset-6.png',
+			'%%ASSET_IMAGE_7%%' => M2_CAREERS_URL . 'assets/image-asset-7.png',
 		];
 
-		$pattern_dir = TOIVOA_CAREERS_PATH . 'patterns/';
+		$pattern_dir = M2_CAREERS_PATH . 'patterns/';
 		
 		foreach ( glob( $pattern_dir . '*.php' ) as $file ) {
 			$file_content = file_get_contents( $file );
@@ -79,10 +79,10 @@ final class BlockPatterns {
 				$title = isset( $title_match[1] ) ? trim( $title_match[1] ) : ucwords( str_replace( '-', ' ', basename( $file, '.php' ) ) );
 				
 				register_block_pattern(
-					'toivoa-careers/' . basename( $file, '.php' ),
+					'm2-careers/' . basename( $file, '.php' ),
 					[
 						'title'      => $title,
-						'categories' => [ 'toivoa-careers' ],
+						'categories' => [ 'm2-careers' ],
 						'content'    => $pattern_content,
 					]
 				);

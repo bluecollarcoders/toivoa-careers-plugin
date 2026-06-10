@@ -2,12 +2,12 @@
 /**
  * Class to register the "Careers" Custom Post Type
  *
- * @package Toivoa_Careers
+ * @package M2_Careers
  */
 
-namespace Toivoa_Careers\PostTypes;
+namespace M2_Careers\PostTypes;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class to handle the "Careers" Custom Post Type registration and functionality.
  *
- * @package Toivoa_Careers\PostTypes
+ * @package M2_Careers\PostTypes
  * @since 1.0.0
  */
 final class CareersPostType {
@@ -39,7 +39,9 @@ final class CareersPostType {
 	 */
 	protected function setup_hooks() {
 		add_action( 'init', [ $this, 'register_careers_post_type' ] );
+		add_action( 'init', [ $this, 'register_careers_taxonomies' ] );
 		add_filter( 'enter_title_here', [ $this, 'change_title_placeholder_text' ] );
+		add_action( 'pre_get_posts', [ $this, 'hide_non_open_roles_from_public_queries' ] );
 	}
 
 	/**
@@ -50,28 +52,28 @@ final class CareersPostType {
 	public function register_careers_post_type() {
 
 		$labels = [
-			'name'                  => _x( 'Jobs', 'Post Type General Name', 'toivoa-careers' ),
-			'singular_name'         => _x( 'Job', 'Post Type Singular Name', 'toivoa-careers' ),
-			'menu_name'             => __( 'Jobs', 'toivoa-careers' ),
-			'name_admin_bar'        => __( 'Job', 'toivoa-careers' ),
-			'archives'              => __( 'Job Archives', 'toivoa-careers' ),
-			'attributes'            => __( 'Job Attributes', 'toivoa-careers' ),
-			'add_new_item'          => __( 'Add New Job', 'toivoa-careers' ),
-			'add_new'               => __( 'Add New', 'toivoa-careers' ),
-			'new_item'              => __( 'New Job', 'toivoa-careers' ),
-			'edit_item'             => __( 'Edit Job', 'toivoa-careers' ),
-			'update_item'           => __( 'Update Job', 'toivoa-careers' ),
-			'view_item'             => __( 'View Job', 'toivoa-careers' ),
-			'search_items'          => __( 'Search Jobs', 'toivoa-careers' ),
-			'not_found'             => __( 'No jobs found', 'toivoa-careers' ),
-			'not_found_in_trash'    => __( 'No jobs found in Trash', 'toivoa-careers' ),
-			'featured_image'        => __( 'Job Featured Image', 'toivoa-careers' ),
-			'set_featured_image'    => __( 'Set job featured image', 'toivoa-careers' ),
-			'remove_featured_image' => __( 'Remove job featured image', 'toivoa-careers' ),
-			'use_featured_image'    => __( 'Use as job featured image', 'toivoa-careers' ),
-			'items_list'            => __( 'Jobs list', 'toivoa-careers' ),
-			'items_list_navigation' => __( 'Jobs list navigation', 'toivoa-careers' ),
-			'filter_items_list'     => __( 'Filter jobs list', 'toivoa-careers' ),
+			'name'                  => _x( 'Careers', 'Post Type General Name', 'm2-careers' ),
+			'singular_name'         => _x( 'Career', 'Post Type Singular Name', 'm2-careers' ),
+			'menu_name'             => __( 'Careers', 'm2-careers' ),
+			'name_admin_bar'        => __( 'Career', 'm2-careers' ),
+			'archives'              => __( 'Career Archives', 'm2-careers' ),
+			'attributes'            => __( 'Career Attributes', 'm2-careers' ),
+			'add_new_item'          => __( 'Add New Career', 'm2-careers' ),
+			'add_new'               => __( 'Add New', 'm2-careers' ),
+			'new_item'              => __( 'New Career', 'm2-careers' ),
+			'edit_item'             => __( 'Edit Career', 'm2-careers' ),
+			'update_item'           => __( 'Update Career', 'm2-careers' ),
+			'view_item'             => __( 'View Career', 'm2-careers' ),
+			'search_items'          => __( 'Search Careers', 'm2-careers' ),
+			'not_found'             => __( 'No careers found', 'm2-careers' ),
+			'not_found_in_trash'    => __( 'No careers found in Trash', 'm2-careers' ),
+			'featured_image'        => __( 'Career Featured Image', 'm2-careers' ),
+			'set_featured_image'    => __( 'Set career featured image', 'm2-careers' ),
+			'remove_featured_image' => __( 'Remove career featured image', 'm2-careers' ),
+			'use_featured_image'    => __( 'Use as career featured image', 'm2-careers' ),
+			'items_list'            => __( 'Careers list', 'm2-careers' ),
+			'items_list_navigation' => __( 'Careers list navigation', 'm2-careers' ),
+			'filter_items_list'     => __( 'Filter careers list', 'm2-careers' ),
 		];
 
 		$args = [
@@ -81,12 +83,12 @@ final class CareersPostType {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => [ 'slug' => 'jobs' ],
+			'rewrite'            => [ 'slug' => 'careers' ],
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'taxonomies'         => [ 'category', 'post_tag' ],
+			'taxonomies'         => [ 'm2_career_type', 'm2_business_unit' ],
 			'menu_icon'          => 'dashicons-media-spreadsheet',
 			'show_in_rest'       => true,
 			'supports'           => [
@@ -100,7 +102,7 @@ final class CareersPostType {
 			],
 		];
 
-		register_post_type( 'job', $args );
+		register_post_type( 'm2_career', $args );
 
 	}
 
@@ -113,11 +115,117 @@ final class CareersPostType {
 	 * @return string The filtered placeholder text.
 	 */
 	public function change_title_placeholder_text( string $title ): string {
-		if ( 'job' === get_post_type() ) {
-			return esc_html__( 'Enter Job Title', 'toivoa-careers' );
+		if ( 'm2_career' === get_post_type() ) {
+			return esc_html__( 'Enter Career Title', 'm2-careers' );
 		}
 
 		return $title;
+	}
+
+	/**
+	 * Register career taxonomies.
+	 *
+	 * @since 1.0.0
+	 */
+	public function register_careers_taxonomies() {
+		// Career Type taxonomy
+		$career_type_labels = [
+			'name'              => _x( 'Career Types', 'taxonomy general name', 'm2-careers' ),
+			'singular_name'     => _x( 'Career Type', 'taxonomy singular name', 'm2-careers' ),
+			'search_items'      => __( 'Search Career Types', 'm2-careers' ),
+			'all_items'         => __( 'All Career Types', 'm2-careers' ),
+			'edit_item'         => __( 'Edit Career Type', 'm2-careers' ),
+			'update_item'       => __( 'Update Career Type', 'm2-careers' ),
+			'add_new_item'      => __( 'Add New Career Type', 'm2-careers' ),
+			'new_item_name'     => __( 'New Career Type Name', 'm2-careers' ),
+			'menu_name'         => __( 'Career Types', 'm2-careers' ),
+		];
+
+		$career_type_args = [
+			'hierarchical'      => false,
+			'labels'            => $career_type_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => [ 'slug' => 'career-type' ],
+			'show_in_rest'      => true,
+		];
+
+		register_taxonomy( 'm2_career_type', [ 'm2_career' ], $career_type_args );
+
+		// Business Unit taxonomy
+		$business_unit_labels = [
+			'name'              => _x( 'Business Units', 'taxonomy general name', 'm2-careers' ),
+			'singular_name'     => _x( 'Business Unit', 'taxonomy singular name', 'm2-careers' ),
+			'search_items'      => __( 'Search Business Units', 'm2-careers' ),
+			'all_items'         => __( 'All Business Units', 'm2-careers' ),
+			'edit_item'         => __( 'Edit Business Unit', 'm2-careers' ),
+			'update_item'       => __( 'Update Business Unit', 'm2-careers' ),
+			'add_new_item'      => __( 'Add New Business Unit', 'm2-careers' ),
+			'new_item_name'     => __( 'New Business Unit Name', 'm2-careers' ),
+			'menu_name'         => __( 'Business Units', 'm2-careers' ),
+		];
+
+		$business_unit_args = [
+			'hierarchical'      => false,
+			'labels'            => $business_unit_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => [ 'slug' => 'business-unit' ],
+			'show_in_rest'      => true,
+		];
+
+		register_taxonomy( 'm2_business_unit', [ 'm2_career' ], $business_unit_args );
+
+		// Create default terms
+		$this->create_default_terms();
+	}
+
+	/**
+	 * Create default taxonomy terms.
+	 *
+	 * @since 1.0.0
+	 */
+	private function create_default_terms() {
+		// Career Type terms
+		if ( ! term_exists( 'Internal', 'm2_career_type' ) ) {
+			wp_insert_term( 'Internal', 'm2_career_type', array( 'slug' => 'internal' ) );
+		}
+		if ( ! term_exists( 'Partner', 'm2_career_type' ) ) {
+			wp_insert_term( 'Partner', 'm2_career_type', array( 'slug' => 'partner' ) );
+		}
+
+		// Business Unit terms
+		if ( ! term_exists( 'M2 Talent', 'm2_business_unit' ) ) {
+			wp_insert_term( 'M2 Talent', 'm2_business_unit' );
+		}
+		if ( ! term_exists( 'M2 Development', 'm2_business_unit' ) ) {
+			wp_insert_term( 'M2 Development', 'm2_business_unit' );
+		}
+		if ( ! term_exists( 'M2 Learning', 'm2_business_unit' ) ) {
+			wp_insert_term( 'M2 Learning', 'm2_business_unit' );
+		}
+	}
+
+
+	/**
+	 * Hide non-open roles from public archive queries.
+	 *
+	 * @param WP_Query $query The WP_Query instance.
+	 */
+	public function hide_non_open_roles_from_public_queries( $query ) {
+		if ( ! is_admin() && $query->is_main_query() ) {
+			if ( is_post_type_archive( 'm2_career' ) || ( is_home() && 'm2_career' === $query->get( 'post_type' ) ) ) {
+				$meta_query = $query->get( 'meta_query' ) ?: [];
+				$meta_query[] = [
+					'key'     => 'm2_status',
+					'value'   => 'Open',
+					'compare' => '='
+				];
+				$query->set( 'meta_query', $meta_query );
+			}
+		}
 	}
 
 }

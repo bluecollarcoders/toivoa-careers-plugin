@@ -1,11 +1,11 @@
 {
-  "name": "toivoa/careers",
-  "description": "Provides a Careers CPT and block templates",
+  "name": "measuretwice/m2-careers",
+  "description": "Provides a Careers CPT and meta fields for the Measure Twice ecosystem",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "autoload": {
     "psr-4": {
-      "Toivoa_Careers\\": "includes/"
+      "M2_Careers\\": "includes/"
     }
   },
       "authors": [

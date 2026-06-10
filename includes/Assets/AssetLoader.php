@@ -2,12 +2,12 @@
 /**
  * Class to register the Enqueue Script.
  *
- * @package Toivoa\Careers
+ * @package M2_Careers\Assets
  */
 
-namespace Toivoa_Careers\Assets;
+namespace M2_Careers\Assets;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -40,7 +40,7 @@ final class AssetLoader {
 	 * @since 1.0.0
 	 */
 	protected function setup_hooks() {
-		add_action( 'enqueue_block_editor_assets', [ $this, 'toivoa_enqueue_job_sidebar_panel' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'm2_enqueue_career_sidebar_panel' ] );
 	}
 
 	/**
@@ -48,26 +48,26 @@ final class AssetLoader {
 	 *
 	 * @since 1.0.0
 	 */
-	public function toivoa_enqueue_job_sidebar_panel() {
+	public function m2_enqueue_career_sidebar_panel() {
 
-		// Only on Job post edit screen.
+		// Only on Career post edit screen.
 		$screen = get_current_screen();
 
-		if ( ! $screen || $screen->post_type !== 'job' ) {
+		if ( ! $screen || $screen->post_type !== 'm2_career' ) {
 			return;
 		}
-		
-		  $asset_file = include TOIVOA_CAREERS_PATH . 'blocks/job-details-sidebar/build/index.asset.php';
 
-			wp_enqueue_script(
-				'toivoa-job-details-sidebar',
-				TOIVOA_CAREERS_URL . 'blocks/job-details-sidebar/build/index.js',
-				$asset_file['dependencies'],
-				$asset_file['version'],
-				true
-			);
+		$asset_file = include M2_CAREERS_PATH . 'blocks/career-details-sidebar/build/index.asset.php';
 
-			wp_enqueue_script( 'toivoa-job-details-sidebar' );
+		wp_enqueue_script(
+			'm2-career-details-sidebar',
+			M2_CAREERS_URL . 'blocks/career-details-sidebar/build/index.js',
+			$asset_file['dependencies'],
+			$asset_file['version'],
+			true
+		);
+
+		wp_enqueue_script( 'm2-career-details-sidebar' );
 	}
 
 }

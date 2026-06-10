@@ -2,13 +2,13 @@
 /**
  * Block Registrar.
  *
- * @package Toivoa_Careers\Blocks
+ * @package M2_Careers\Blocks
  * @since 1.0.0
  */
 
-namespace Toivoa_Careers\Blocks;
+namespace M2_Careers\Blocks;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class BlockRegistrar.
  *
- * @package Toivoa_Careers\Blocks
+ * @package M2_Careers\Blocks
  * @since 1.0.0
  */
 final class BlockRegistrar {
@@ -48,7 +48,7 @@ final class BlockRegistrar {
 	 * @since 1.0.0
 	 */
 	public function register_blocks() {
-		$dir = TOIVOA_CAREERS_PATH . 'blocks/breadcrumb-block';
+		$dir = M2_CAREERS_PATH . 'blocks/breadcrumb-block';
 
 		// Only register the block definition
 		register_block_type( $dir, [
@@ -65,12 +65,12 @@ final class BlockRegistrar {
 		ob_start();
 		?>
 		<nav <?php echo $wrapper; ?>>
-		<a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Home', 'toivoa-careers' ); ?></a>
+		<a href="<?php echo esc_url( home_url() ); ?>"><?php esc_html_e( 'Home', 'm2-careers' ); ?></a>
 		<span>/</span>
-		<a href="<?php echo esc_url( get_post_type_archive_link( 'job' ) ); ?>">
-			<?php esc_html_e( 'Jobs', 'toivoa-careers' ); ?>
+		<a href="<?php echo esc_url( get_post_type_archive_link( 'm2_career' ) ); ?>">
+			<?php esc_html_e( 'Careers', 'm2-careers' ); ?>
 		</a>
-		<?php if ( is_singular( 'job' ) ) : ?>
+		<?php if ( is_singular( 'm2_career' ) ) : ?>
 			<span>/</span>
 			<span><?php echo esc_html( get_the_title() ); ?></span>
 		<?php endif; ?>

@@ -1,22 +1,27 @@
 # node
+node_modules/
 **/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # build artifacts
-**/build/
+dist/
 **/dist/
-# …except these
+build/
+**/build/
+
+# keep production block builds
+!blocks/
+!blocks/breadcrumb-block/
 !blocks/breadcrumb-block/build/
+!blocks/breadcrumb-block/build/**
+!blocks/job-details-sidebar/
 !blocks/job-details-sidebar/build/
+!blocks/job-details-sidebar/build/**
 
-# PHP dependencies — installed on deploy
+# PHP dependencies
 vendor/
-
-# we *do* want to commit these so deployments are reproducible
-# composer.lock
-# package-lock.json
 
 # IDEs
 .vscode/
@@ -32,8 +37,10 @@ Thumbs.db
 .env
 *.env
 
-# PHPUnit cache (if you add tests)
+# PHPUnit/cache
 .phpunit.result.cache
+coverage/
 
-# WordPress debug log
+# Logs
+debug.log
 wp-content/debug.log

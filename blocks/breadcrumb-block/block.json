@@ -1,10 +1,10 @@
 {
   "$schema":      "https://schemas.wp.org/trunk/block.json",
   "apiVersion":   3,
-  "name":         "toivoa-careers/breadcrumb-block",   
+  "name":         "m2-careers/breadcrumb-block",
   "title":        "Breadcrumb Trail",
   "category":     "widgets",
-  "description":  "Simple home / jobs / current breadcrumb.",
+  "description":  "Simple home / careers / current breadcrumb.",
     "supports": {
     "html": false,
 
@@ -20,7 +20,7 @@
 	  "margin":true
     }
   },
-  "textdomain":   "toivoa-careers",
+  "textdomain":   "m2-careers",
 
   "editorScript": "file:./build/index.js",
   "editorStyle":  "file:./build/editor.css",

@@ -5,12 +5,12 @@
  *
  * This class is responsible for loading the plugin's files.
  *
- * @package Toivoa_Careers\Includes
+ * @package M2_Careers\Includes
  */
 
-namespace Toivoa_Careers;
+namespace M2_Careers;
 
-use Toivoa_Careers\Traits\Singleton;
+use M2_Careers\Traits\Singleton;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * This class is responsible for loading the plugin's files.
  *
- * @package Toivoa_Careers\Includes
+ * @package M2_Careers\Includes
  */
 final class Loader {
 
@@ -38,7 +38,7 @@ final class Loader {
 	 * Setup hooks.
 	 */
 	private function _setup_hooks() {
-		add_action( 'plugin_loaded', [ $this, 'load_classes' ] );
+		add_action( 'plugins_loaded', [ $this, 'load_classes' ] );
 	}
 
 	/**
@@ -85,5 +85,5 @@ final class Loader {
 	}
 }
 
-// Initialize the class
-add_action( 'init', [ Loader::class, 'instance' ] );
+// Initialize the class immediately
+Loader::instance();

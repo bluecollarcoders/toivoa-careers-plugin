@@ -43,10 +43,10 @@ function CareerDetailsPanel() {
             />
             <TextControl
                 label={ __( 'Number of Openings', 'm2-careers' ) }
-                type="number"
+                help={ __( 'Examples: "1", "Multiple", "20+ hires"', 'm2-careers' ) }
                 value={ meta.m2_openings || '' }
                 onChange={ ( value ) =>
-                    setMeta( { ...meta, m2_openings: parseInt( value ) || 1 } )
+                    setMeta( { ...meta, m2_openings: value } )
                 }
             />
             <SelectControl
@@ -70,18 +70,27 @@ function CareerDetailsPanel() {
                     setMeta( { ...meta, m2_apply_url: value } )
                 }
             />
-            <CheckboxControl
-                label={ __( 'Confidential Client', 'm2-careers' ) }
-                checked={ meta.m2_confidential_client || false }
-                onChange={ ( value ) =>
-                    setMeta( { ...meta, m2_confidential_client: value } )
-                }
-            />
             <TextControl
-                label={ __( 'Partner Company', 'm2-careers' ) }
+                label={ __( 'Company Display Name', 'm2-careers' ) }
+                help={ __( 'Use the company name, Measure Twice, or Confidential Client.', 'm2-careers' ) }
                 value={ meta.m2_partner_company || '' }
                 onChange={ ( value ) =>
                     setMeta( { ...meta, m2_partner_company: value } )
+                }
+            />
+            <SelectControl
+                label={ __( 'Role Type', 'm2-careers' ) }
+                value={ meta.m2_employment_type || '' }
+                options={ [
+                    { label: 'Select...', value: '' },
+                    { label: 'Software Engineer', value: 'Software Engineer' },
+                    { label: 'Full Stack Engineer', value: 'Full Stack Engineer' },
+                    { label: 'Block Chain Engineer', value: 'Block Chain Engineer' },
+                    { label: 'Recruiter', value: 'Recruiter' },
+                    { label: 'Product Manager', value: 'Product Manager' }
+                ] }
+                onChange={ ( value ) =>
+                    setMeta( { ...meta, m2_employment_type: value } )
                 }
             />
             <SelectControl

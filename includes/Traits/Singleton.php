@@ -5,10 +5,10 @@
  * This trait implements the singleton pattern for classes that need to ensure
  * only one instance exists throughout the application lifecycle.
  *
- * @package Toivoa_Careers\Includes
+ * @package M2_Careers\Includes
  */
 
-namespace Toivoa_Careers\Traits;
+namespace M2_Careers\Traits;
 
 /**
  * Singleton trait.
@@ -16,7 +16,7 @@ namespace Toivoa_Careers\Traits;
  * This trait implements the singleton pattern for classes that need to ensure
  * only one instance exists throughout the application lifecycle.
  *
- * @package Toivoa_Careers\Includes
+ * @package M2_Careers\Includes
  */
 trait Singleton {
 
@@ -40,10 +40,6 @@ trait Singleton {
         return self::$instance;
     }
 
-    /**
-     * Prevent direct instantiation.
-     */
-    private function __construct() {}
 
     /**
      * Prevent cloning of the instance.
